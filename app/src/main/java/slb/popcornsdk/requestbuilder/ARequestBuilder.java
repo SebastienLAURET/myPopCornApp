@@ -1,4 +1,4 @@
-package popcornsdk;
+package slb.popcornsdk.requestbuilder;
 
 /**
  * Created by lauret_s on 29/06/2017.
