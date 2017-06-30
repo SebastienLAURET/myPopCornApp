@@ -16,9 +16,9 @@ public abstract class ARequestBuilder {
         return _host + _path;
     }
     public String getPage(String idPage) {
-        return _host + idPage;
+        return _host + "/" + idPage;
     }
     public String getDetails(String idImdb) {
-        return _host + _path + idImdb;
+        return _host + _path + "/" + idImdb;
     }
 }
