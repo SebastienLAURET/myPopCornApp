@@ -1,10 +1,10 @@
 
-package slb.popcornsdk.data.show;
+package slb.popcornsdk.data.showdetail;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class _0 {
+public class _720p {
 
     @SerializedName("provider")
     @Expose

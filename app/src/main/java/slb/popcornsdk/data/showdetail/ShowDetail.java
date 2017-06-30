@@ -1,11 +1,11 @@
 
-package slb.popcornsdk.data.show;
+package slb.popcornsdk.data.showdetail;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Show {
+public class ShowDetail {
 
     @SerializedName("_id")
     @Expose
