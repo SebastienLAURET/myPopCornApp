@@ -23,7 +23,6 @@ public class MovieRequestHandle extends ARequestHandle {
     }
     public ArrayList<Movie> getPage(String idPage) {
         String tmpJson = super.getPageBase(_req, idPage);
-        Log.d("TOTO", "getPage: "+ tmpJson);
         Type listType = new TypeToken<ArrayList<Movie>>(){}.getType();
         ArrayList<Movie> res = new Gson().fromJson(tmpJson, listType);
         return res;
