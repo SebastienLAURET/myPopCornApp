@@ -22,7 +22,7 @@ public abstract class ABook {
         loadPage();
     }
 
-    public ArrayList<APage> getMovies() {
+    public ArrayList<APage> getPage() {
         return _page;
     }
     public ArrayList<APage> nextPage() {
@@ -37,7 +37,9 @@ public abstract class ABook {
         loadPage();
         return _page;
     }
-
+    public int getNbPage() {
+        return _actPage;
+    }
     private void loadPage() {
         _page = _requestHandle.getPage(_pageName.get(_actPage));
     }
