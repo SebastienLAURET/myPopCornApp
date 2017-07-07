@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+import slb.popcornsdk.data.detail.ADetail;
 import slb.popcornsdk.data.page.APage;
 import slb.popcornsdk.data.page.movie.Movie;
 import slb.popcornsdk.Network.requestbuilder.RequestBuilderMovies;
@@ -14,27 +15,26 @@ import slb.popcornsdk.Network.requestbuilder.RequestBuilderMovies;
  */
 
 public class MovieRequestHandle extends ARequestHandle {
-    RequestBuilderMovies _req = new RequestBuilderMovies();
+    public MovieRequestHandle () {
+        super(new RequestBuilderMovies());
+    }
 
     @Override
     public ArrayList<String> getNamePages() {
-        return getNamePages(_req);
+        return super.getNamePages();
     }
-    //@Override
-    //@Override
+
+    @Override
     public ArrayList<APage> getPage(String idPage) {
         Type listType = new TypeToken<ArrayList<Movie>>(){}.getType();
-        ArrayList<APage> res = super.getPage(_req, idPage, listType);
-
+        ArrayList<APage> res = super.getPageBase( idPage, listType);
         return res;
-       // return null;
     }
-    /*
-    //@Override
-    public Movie getDetail(String idImdb) {
+
+    @Override
+    public ADetail getDetail(String idImdb) {
         Type listType = new TypeToken<Movie>(){}.getType();
-        Movie res = (Movie)super.getDetail(_req, idImdb, listType);
+        ADetail res = super.getDetailBase( idImdb, listType);
         return res;
-        //return null;
-    }*/
+    }
 }
