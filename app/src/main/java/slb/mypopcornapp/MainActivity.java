@@ -1,5 +1,6 @@
 package slb.mypopcornapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,14 +16,16 @@ import android.widget.ToggleButton;
 import java.util.ArrayList;
 
 import slb.popcornsdk.ABook;
+import slb.popcornsdk.BookSingleton;
 import slb.popcornsdk.MoviesBook;
 import slb.popcornsdk.ShowsBook;
 import slb.popcornsdk.data.page.APage;
 import slb.popcornsdk.data.page.movie.Movie;
 
 public class MainActivity extends AppCompatActivity {
-    public ABook book = new MoviesBook();
+
     public ArrayList<APage> listElem;
+    public ABook book = (new BookSingleton()).getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         displayListElem();
         setButton();
         setSwitch();
+
     }
 
     private void setButton() {
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 book.prevPage();
                 displayListElem();
+
             }
         });
         Button nextBtn = (Button) findViewById(R.id.nextPageBtn);
@@ -56,16 +61,13 @@ public class MainActivity extends AppCompatActivity {
         ToggleButton selectTgl = (ToggleButton) findViewById(R.id.selectorTgl);
         selectTgl.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    book = new ShowsBook();
-                } else {
-                    book = new MoviesBook();
-                }
+                book = (new BookSingleton()).swMovShow();
                 displayListElem();
             }
         });
     }
-
+    public static final String EXTRA_ID_ELEM = "slb.popcornsdk.MESSAGE";
+    public static final String EXTRA_BOOK = "slb.popcornsdk.MESSAGE";
     private void displayListElem (){
         listElem = book.getPage();
 
@@ -75,8 +77,11 @@ public class MainActivity extends AppCompatActivity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(MainActivity.this, listElem.get(position).getTitle(),
-                        Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(MainActivity.this, listElem.get(position).getTitle(),
+             //           Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getBaseContext(), NameItemActivity.class);
+                intent.putExtra(EXTRA_ID_ELEM, listElem.get(position).getImdbId());
+                startActivity(intent);
             }
         });
     }
