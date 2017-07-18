@@ -13,7 +13,7 @@ public abstract class ARequestBuilder {
     }
 
     public String getNamePages() {
-        return _host + _path;
+        return _host + _path + 's';
     }
     public String getPage(String idPage) {
         return _host + "/" + idPage;

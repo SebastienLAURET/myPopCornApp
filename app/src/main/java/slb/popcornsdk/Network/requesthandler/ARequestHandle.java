@@ -1,5 +1,7 @@
 package slb.popcornsdk.Network.requesthandler;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -39,18 +41,24 @@ public abstract class ARequestHandle {
 
     public ArrayList<String> getNamePages() {
         String tmpJson = makeRequest(_requestBuilder.getNamePages());
+        if (tmpJson == null)
+            return null;
         Type listType = new TypeToken<ArrayList<String>>(){}.getType();
         ArrayList<String> result = new Gson().fromJson(tmpJson, listType);
         return result;
     }
     public ArrayList<APage> getPageBase(String idPage, Type type) {
         String tmpJson = makeRequest(_requestBuilder.getPage(idPage));
+        if (tmpJson == null)
+            return null;
         ArrayList<APage> res = new Gson().fromJson(tmpJson, type);
         return res;
     }
     public ADetail getDetailBase(String idImdb, Type type) {
         String tmpJson = makeRequest(_requestBuilder.getDetails(idImdb));
-        ADetail res = new Gson().fromJson(tmpJson, type);
+        if (tmpJson == null)
+            return null;
+        ADetail res = (ADetail) new Gson().fromJson(tmpJson, type);
         return res;
     }
 

@@ -6,6 +6,6 @@ package slb.popcornsdk.Network.requestbuilder;
 
 public class RequestBuilderShows extends ARequestBuilder {
     public RequestBuilderShows() {
-        super("/shows");
+        super("/show");
     }
 }

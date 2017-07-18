@@ -33,7 +33,7 @@ public class MovieRequestHandle extends ARequestHandle {
 
     @Override
     public ADetail getDetail(String idImdb) {
-        Type listType = new TypeToken<Movie>(){}.getType();
+        Type listType = new TypeToken<slb.popcornsdk.data.detail.movie.Movie>(){}.getType();
         ADetail res = super.getDetailBase( idImdb, listType);
         return res;
     }

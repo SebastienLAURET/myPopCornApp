@@ -12,21 +12,9 @@ public class ShowDetail extends ADetail {
     @SerializedName("tvdb_id")
     @Expose
     private String tvdbId;
-    @SerializedName("title")
-    @Expose
-    private String title;
-    @SerializedName("year")
-    @Expose
-    private String year;
     @SerializedName("slug")
     @Expose
     private String slug;
-    @SerializedName("synopsis")
-    @Expose
-    private String synopsis;
-    @SerializedName("runtime")
-    @Expose
-    private String runtime;
     @SerializedName("country")
     @Expose
     private String country;
@@ -45,24 +33,16 @@ public class ShowDetail extends ADetail {
     @SerializedName("num_seasons")
     @Expose
     private Integer numSeasons;
-    @SerializedName("last_updated")
+/*    @SerializedName("last_updated")
     @Expose
     private Integer lastUpdated;
     @SerializedName("__v")
     @Expose
     private Integer v;
-    @SerializedName("episodes")
+*/    @SerializedName("episodes")
     @Expose
     private List<Episode> episodes = null;
-    @SerializedName("genres")
-    @Expose
-    private List<String> genres = null;
-    @SerializedName("images")
-    @Expose
-    private Images images;
-    @SerializedName("rating")
-    @Expose
-    private Rating rating;
+
 
 
 
@@ -74,22 +54,6 @@ public class ShowDetail extends ADetail {
         this.tvdbId = tvdbId;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
     public String getSlug() {
         return slug;
     }
@@ -98,21 +62,6 @@ public class ShowDetail extends ADetail {
         this.slug = slug;
     }
 
-    public String getSynopsis() {
-        return synopsis;
-    }
-
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis;
-    }
-
-    public String getRuntime() {
-        return runtime;
-    }
-
-    public void setRuntime(String runtime) {
-        this.runtime = runtime;
-    }
 
     public String getCountry() {
         return country;
@@ -162,7 +111,7 @@ public class ShowDetail extends ADetail {
         this.numSeasons = numSeasons;
     }
 
-    public Integer getLastUpdated() {
+/*    public Integer getLastUpdated() {
         return lastUpdated;
     }
 
@@ -177,7 +126,7 @@ public class ShowDetail extends ADetail {
     public void setV(Integer v) {
         this.v = v;
     }
-
+*/
     public List<Episode> getEpisodes() {
         return episodes;
     }
@@ -186,28 +135,6 @@ public class ShowDetail extends ADetail {
         this.episodes = episodes;
     }
 
-    public List<String> getGenres() {
-        return genres;
-    }
 
-    public void setGenres(List<String> genres) {
-        this.genres = genres;
-    }
-
-    public Images getImages() {
-        return images;
-    }
-
-    public void setImages(Images images) {
-        this.images = images;
-    }
-
-    public Rating getRating() {
-        return rating;
-    }
-
-    public void setRating(Rating rating) {
-        this.rating = rating;
-    }
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import slb.popcornsdk.Network.requesthandler.ARequestHandle;
 import slb.popcornsdk.Network.requesthandler.MovieRequestHandle;
+import slb.popcornsdk.data.detail.ADetail;
 import slb.popcornsdk.data.page.APage;
 
 /**
@@ -37,6 +38,10 @@ public abstract class ABook {
         loadPage();
         return _page;
     }
+    public ADetail getDetail(String idImdb) {
+        return _requestHandle.getDetail(idImdb);
+    }
+
     public int getNbPage() {
         return _actPage;
     }

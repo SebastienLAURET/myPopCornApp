@@ -1,5 +1,5 @@
 
-package slb.popcornsdk.data.detail.movie;
+package slb.popcornsdk.data.detail;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

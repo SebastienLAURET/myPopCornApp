@@ -6,6 +6,6 @@ package slb.popcornsdk.Network.requestbuilder;
 
 public class RequestBuilderMovies extends ARequestBuilder {
     public RequestBuilderMovies() {
-        super("/movies");
+        super("/movie");
     }
 }
